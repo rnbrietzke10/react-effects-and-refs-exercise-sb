@@ -1,9 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Card from './Card';
 import './Deck.css';
 
 const Deck = () => {
   const [deck, setDeck] = useState([]);
+  const getDeck = async () => {
+    const data = await axios.get(
+      'http://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1'
+    );
+
+    setDeck(data);
+  };
+  getDeck();
   return (
     <div className="deck-container">
       <header>
@@ -11,9 +20,10 @@ const Deck = () => {
           Get a Card
         </button>
       </header>
-      {deck.map((card) => (
+      {console.log(deck)}
+      {/* {deck.map((card) => (
         <Card />
-      ))}
+      ))} */}
     </div>
   );
 };
