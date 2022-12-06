@@ -11,7 +11,9 @@ const Deck = () => {
           Get a Card
         </button>
       </header>
-      <Card />
+      {deck.map((card) => (
+        <Card />
+      ))}
     </div>
   );
 };
