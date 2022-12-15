@@ -1,15 +1,15 @@
 import React from 'react';
 import './Card.css';
 
-const Card = () => {
+const Card = ({ image, value, suit }) => {
   return (
     <div className="card-container">
       <div className="card">
         <img
-          src="{card.image}"
-          alt="{card.value} of {card.suit}"
+          src="{image}"
+          alt="{value} of {suit}"
           class="card"
-          id="{card.value}-{card.suit}"
+          id="{value}-{suit}"
         />
       </div>
     </div>
