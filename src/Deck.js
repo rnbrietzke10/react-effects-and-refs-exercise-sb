@@ -5,14 +5,21 @@ import './Deck.css';
 
 const Deck = () => {
   const [deck, setDeck] = useState([]);
-  const getDeck = async () => {
-    const data = await axios.get(
-      'http://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1'
-    );
 
-    setDeck(data);
-  };
-  getDeck();
+  //   Get new shuffled deck of cards
+  useEffect(() => {
+    const getDeck = async () => {
+      const data = await axios.get(
+        'http://deckofcardsapi.com/api/deck/new/shuffle'
+      );
+
+      setDeck(data.data);
+    };
+    getDeck();
+  }, [setDeck]);
+
+  // Draw one card
+
   return (
     <div className="deck-container">
       <header>
